@@ -3,8 +3,8 @@ default: &default
   encoding: unicode 
   pool: 5 
   timeout: 5000 
-  #username: postgres
-  username: dani
+  username: postgres
+  #username: dani
 
   # please see the update below about using hostnames to 
   # access linked services via docker-compose

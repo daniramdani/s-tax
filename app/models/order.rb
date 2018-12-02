@@ -1,5 +1,7 @@
 class Order < ApplicationRecord
 	belongs_to :product
+	belongs_to :user
+	
 	validates_presence_of :product_id, :tax_code
 
 	def self.gets user_id
@@ -29,7 +31,7 @@ class Order < ApplicationRecord
 				order[:name] = ro.product.name
 				order[:tax_code] = ro.tax_code
 				order[:type] = ro.product.master_product_type.id
-				order[:refundable] = @type
+				order[:refundable] = refundable_transf @type
 				order[:price] = @price
 				order[:tax] = @tax
 				order[:amount] = @amount
